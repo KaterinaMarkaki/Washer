@@ -14,17 +14,12 @@ import java.util.Date;
 public class PowerOnActivity extends AppCompatActivity {
 
     private ImageButton powerButton;
-    private Date time;
-    private TextView t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_power_on);
         powerButton = (ImageButton) findViewById(R.id.btnCircle);
-        //t = (TextView) findViewById(R.id.time);
-        //time = Calendar.getInstance().getTime();
-       // t.setText((CharSequence) time);
     }
 
     public void onStart() {
@@ -33,7 +28,6 @@ public class PowerOnActivity extends AppCompatActivity {
         powerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(MainActivity.this,"Circle Button Clicked.",Toast.LENGTH_SHORT);
                 Intent start = new Intent(PowerOnActivity.this,MainActivity.class);
                 startActivity(start);
             }

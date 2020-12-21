@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tshirt = (ImageView) findViewById(R.id.tshirt_icon);
+
     }
     public void onStart() {
         super.onStart();

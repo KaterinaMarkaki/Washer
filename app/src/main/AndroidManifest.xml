@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.washer">
 
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/washericon2_removebg_preview"

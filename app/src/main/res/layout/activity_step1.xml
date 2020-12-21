@@ -85,13 +85,32 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/openbtn"
         android:layout_centerHorizontal="true"
-        android:text="received"
+        android:text="Η ΠΟΡΤΑ ΕΙΝΑΙ ΑΝΟΙΧΤΗ"
         android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment"
+        app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="@+id/nav_host_fragment"
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment"
+        app:layout_constraintVertical_bias="0.417"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/AlertTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/openbtn"
+        android:layout_centerHorizontal="true"
+        android:text="Η ΠΟΡΤΑ ΕΚΛΕΙΣΕ"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/closebtn"
+        app:layout_constraintVertical_bias="0.177"
         tools:ignore="MissingConstraints" />
 
     <Button

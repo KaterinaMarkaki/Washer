@@ -25,7 +25,8 @@ public class step1 extends AppCompatActivity {
     private BottomNavigationItemView home;
     private Button open;
     private Button close;
-    private TextView alertTextView;
+    private TextView alertTextViewForOpen;
+    private TextView alertTextViewForClose;
     private Button next;
 
     @Override
@@ -46,7 +47,8 @@ public class step1 extends AppCompatActivity {
         info =  findViewById(R.id.navigation_info);
         open = (Button) findViewById(R.id.openbtn);
         close = (Button) findViewById(R.id.closebtn);
-        alertTextView = (TextView) findViewById(R.id.AlertTextView);
+        alertTextViewForOpen = (TextView) findViewById(R.id.AlertTextView);
+        alertTextViewForClose = (TextView) findViewById(R.id.AlertTextView2);
         next = (Button) findViewById(R.id.nextbtn);
     }
     public void onStart() {
@@ -84,10 +86,19 @@ public class step1 extends AppCompatActivity {
                 builder.setPositiveButton("ΤΟ ΕΚΑΝΑ", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        alertTextView.setVisibility(View.VISIBLE);
+                        alertTextViewForOpen.setVisibility(View.VISIBLE);
+                        alertTextViewForClose.setVisibility(View.INVISIBLE);
                     }
                 });
                 builder.show();
+            }
+        });
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                alertTextViewForOpen.setVisibility(View.INVISIBLE);
+                alertTextViewForClose.setVisibility(View.VISIBLE);
             }
         });
 
