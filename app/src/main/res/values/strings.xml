@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">PITSOS</string>
+    <string name="power" />
+    <string name="mes">ΚΑΤΑΣΤΑΣΗ ΠΛΥΝΤΗΡΙΟΥ: ΚΛΕΙΣΤΟ</string>
+    <string name="com">ΕΝΕΡΓΟΠΟΙΗΣΗ ΠΛΥΝΤΗΡΙΟΥ</string>
+    <string name="wel">ΚΑΛΩΣ ΗΡΘΑΤΕ</string>
+    <string name="info">ΠΛΗΡΟΦΟΡΙΕΣ</string>
+    <string name="quest">TODO</string>
+    <string name="washer">TODO</string>
+    <string name="title_activity_step1">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_info">Info</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title2">ΒΗΜΑ 2</string>
+    <string name="mes2">Προσθέστε την απαραίτητη ποσότητα απορρυπαντικού και μαλακτικού</string>
+    <string name="nextbtn2"><![CDATA[ΕΠΟΜΕΝΟ -->]]></string>
+    <string name="ΒΗΜΑ2">step2_activity_title</string>
+    <string name="name1">ΣΚΟΥΡΟΧΡΟΜΑ</string>
+    <string name="dark">ΣΚΟΥΡΟΧΡΩΜΑ</string>
+    <string name="ready_mes">Η πλύση είναι έτοιμη να ξεκινήσει.</string>
+    <string name="startNow">Έναρξη τώρα</string>
+    <string name="StartLater">εναρξη σε...</string>
+    <string name="todo">TODO</string>
+    <string name="cancel">ακυρωση</string>
+    <string name="one">ΒΗΜΑ 1</string>
+
+    <string-array name="array_temp">
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>60</item>
+        <item>90</item>
+    </string-array>
+
+    <string-array name="array_turns">
+        <item>400</item>
+        <item>600</item>
+        <item>800</item>
+        <item>1000</item>
+        <item>1200</item>
+    </string-array>
+</resources>
