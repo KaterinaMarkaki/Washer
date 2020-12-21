@@ -81,7 +81,13 @@ public class Ready extends AppCompatActivity {
             }
         });
 
-        //later.setOnClickListener();
+        later.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent start = new Intent(Ready.this,Timer.class);
+                startActivity(start);
+            }
+        });
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override

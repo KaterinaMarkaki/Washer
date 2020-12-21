@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.washer">
 
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/washericon2_removebg_preview"
@@ -11,9 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Done"></activity>
+        <activity android:name=".Squeeze" />
         <activity android:name=".Detail" />
         <activity android:name=".Ready" />
         <activity android:name=".OnGoing" />
+        <activity android:name=".Timer" />
         <activity
             android:name=".step2"
             android:label="@string/ΒΗΜΑ2" />

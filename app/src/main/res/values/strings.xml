@@ -24,6 +24,7 @@
     <string name="todo">TODO</string>
     <string name="cancel">ακυρωση</string>
     <string name="one">ΒΗΜΑ 1</string>
+    <string name="hello">hello word</string>
 
     <string-array name="array_temp">
         <item>20</item>

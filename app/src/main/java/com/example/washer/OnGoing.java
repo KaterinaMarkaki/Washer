@@ -1,11 +1,13 @@
 package com.example.washer;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -61,8 +63,34 @@ public class OnGoing extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent start = new Intent(OnGoing.this, MainActivity.class);
-                startActivity(start);
+                AlertDialog.Builder builder = new AlertDialog.Builder(OnGoing.this);
+                builder.setCancelable(true);
+                builder.setTitle("Προσοχή");
+                builder.setMessage("Θέλετε να τερματίσετε την πλύση ή να γίνει παύση για λίγο");
+                builder.setNegativeButton("Ναι, σταμάτα", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent start = new Intent(OnGoing.this,MainActivity.class);
+                        startActivity(start);
+                    }
+                });
+
+                builder.setPositiveButton("Παύση", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                builder.show();
+                        AlertDialog.Builder pause = new AlertDialog.Builder(OnGoing.this);
+                        pause.setMessage("Η πλύση βρίσκεται σε παύση");
+                        pause.setPositiveButton("Συνέχισε", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                             dialogInterface.cancel();
+                            }
+                        });
+                        pause.show();
             }
         });
 

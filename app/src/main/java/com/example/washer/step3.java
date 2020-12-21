@@ -24,7 +24,7 @@ public class step3 extends AppCompatActivity {
     private BottomNavigationItemView home;
 
     String[] nameArray = {"ΣΚΟΥΡΟΧΡΩΜΑ","ΜΑΛΛΙΝΑ"};
-    String[] infoArray = {"έχουν όλα σκούρο χρώμα.","είναι όλα μάλλινα"};
+    String[] infoArray = {"έχουν όλα σκούρο χρώμα.","είναι όλα μάλλινα."};
     Integer[] imageArray = {R.drawable.darkclothes_removebg_preview,R.drawable.wool_removebg_preview};
     ListView listView;
 
