@@ -11,11 +11,14 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView tshirt;
+    private ImageView info;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tshirt = (ImageView) findViewById(R.id.tshirt_icon);
+        info = (ImageView) findViewById(R.id.imageView3);
 
     }
     public void onStart() {
@@ -25,6 +28,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent start = new Intent(MainActivity.this,step1.class);
+                startActivity(start);
+            }
+        });
+
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent start = new Intent(MainActivity.this,Information.class);
                 startActivity(start);
             }
         });
