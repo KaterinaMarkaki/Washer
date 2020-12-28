@@ -14,16 +14,16 @@ import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Squeeze extends AppCompatActivity {
+public class Squeeze_timer extends AppCompatActivity {
     private BottomNavigationItemView info;
     private BottomNavigationItemView home;
 
-    private Button yes;
-    private Button no;
+    private Button btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_squeeze);
+        setContentView(R.layout.activity_squeeze_timer);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -35,17 +35,16 @@ public class Squeeze extends AppCompatActivity {
         home = findViewById(R.id.navigation_home);
         info = findViewById(R.id.navigation_info);
 
-        yes = findViewById(R.id.yesBtn);
-        no = findViewById(R.id.noBtn);
+        btn = findViewById(R.id.Btn);
     }
 
-    public void onStart() {
+    public void onStart(){
         super.onStart();
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent start = new Intent(Squeeze.this, MainActivity.class);
+                Intent start = new Intent(Squeeze_timer.this, MainActivity.class);
                 startActivity(start);
             }
         });
@@ -53,23 +52,15 @@ public class Squeeze extends AppCompatActivity {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent start = new Intent(Squeeze.this, Information.class);
+                Intent start = new Intent(Squeeze_timer.this, Information.class);
                 startActivity(start);
             }
         });
 
-        no.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent start = new Intent(Squeeze.this,Done.class);
-                startActivity(start);
-            }
-        });
-
-        yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent start = new Intent(Squeeze.this,Squeeze_timer.class);
+                Intent start = new Intent(Squeeze_timer.this,Done.class);
                 startActivity(start);
             }
         });

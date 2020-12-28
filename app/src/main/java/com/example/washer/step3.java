@@ -23,9 +23,11 @@ public class step3 extends AppCompatActivity {
     private BottomNavigationItemView info;
     private BottomNavigationItemView home;
 
-    String[] nameArray = {"ΣΚΟΥΡΟΧΡΩΜΑ","ΜΑΛΛΙΝΑ"};
-    String[] infoArray = {"έχουν όλα σκούρο χρώμα.","είναι όλα μάλλινα."};
-    Integer[] imageArray = {R.drawable.darkclothes_removebg_preview,R.drawable.wool_removebg_preview};
+    String[] nameArray = {"ΣΚΟΥΡΟΧΡΩΜΑ","ΜΑΛΛΙΝΑ","ΛΕΥΚΑ","ΚΟΥΡΤΙΝΕΣ","ΓΡΗΓΟΡΗ ΠΛΥΣΗ","ΟΙΚΟΝΟΜΙΚΟ"};
+    String[] infoArray = {"έχουν όλα σκούρο χρώμα.","είναι όλα μάλλινα.","έχουν όλα λευκό χρώμα.",
+    "είναι κουρτίνες/σεντόνια.","είναι ελαφρώς λερωμένα.","είναι ελαφρώς λερωμένα."};
+    Integer[] imageArray = {R.drawable.darkclothes_removebg_preview,R.drawable.wool_removebg_preview,R.drawable.white_removebg_preview,
+            R.drawable.kourtina_removebg_preview,R.drawable.quick_removebg_preview,R.drawable.eco2_removebg_preview};
     ListView listView;
 
     @Override

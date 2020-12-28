@@ -1,6 +1,8 @@
 package com.example.washer;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -27,6 +29,19 @@ public class Information extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
         home = findViewById(R.id.navigation_home);
+
+    }
+
+    public void onStart() {
+        super.onStart();
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent start = new Intent(Information.this, MainActivity.class);
+                startActivity(start);
+            }
+        });
 
     }
 }

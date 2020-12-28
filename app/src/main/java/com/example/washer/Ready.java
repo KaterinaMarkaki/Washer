@@ -1,10 +1,12 @@
 package com.example.washer;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -45,9 +47,9 @@ public class Ready extends AppCompatActivity {
         home = findViewById(R.id.navigation_home);
         info = findViewById(R.id.navigation_info);
 
-        now = (Button) findViewById(R.id.nowBtn);
-        later = (Button) findViewById(R.id.laterBtn);
-        cancel = (Button) findViewById(R.id.cancelBtn);
+        now = findViewById(R.id.nowBtn);
+        later = findViewById(R.id.laterBtn);
+        cancel = findViewById(R.id.cancelBtn);
 
     }
 
@@ -74,7 +76,7 @@ public class Ready extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent start = new Intent(Ready.this,OnGoing.class);
-                start.putExtra("program",name);
+                start.putExtra("program2",name);
                 start.putExtra("temperature",temperature);
                 start.putExtra("turns",turns);
                 startActivity(start);
@@ -92,7 +94,27 @@ public class Ready extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent start = new Intent(Ready.this, step3.class);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(Ready.this);
+                builder.setCancelable(true);
+                builder.setTitle("ΠΡΟΣΟΧΗ");
+                builder.setMessage("Η πλύση σας θα ακυρωθεί. Είστε σίγουρος;");
+                builder.setNegativeButton("ΟΧΙ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+
+                builder.setPositiveButton("ΝΑΙ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent start = new Intent(Ready.this, step3.class);
+                        startActivity(start);
+                    }
+                });
+                builder.show();
+
             }
         });
     }

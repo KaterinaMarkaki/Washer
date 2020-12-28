@@ -1,6 +1,5 @@
 package com.example.washer;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,25 +33,25 @@ public class OnGoing extends AppCompatActivity {
     private boolean timeRunning;
 
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ongoing);
-        Bundle extras = getIntent().getExtras();
-        name =extras.getString("program");
 
-        TextView choosenName = findViewById(R.id.choosenName);
-        choosenName.setText("Επιλεγμένο πρόγραμμα: "+name);
+        name = getIntent().getStringExtra("program2");
+        TextView chosenName = findViewById(R.id.chosenName);
+        chosenName.setText("Επιλεγμένο πρόγραμμα: "+ name);
 
         temperature = getIntent().getStringExtra("temperature");
-
-        TextView choosenTemp = findViewById(R.id.choosenTemp);
-        choosenName.setText("" + choosenTemp);
-
         turns = getIntent().getStringExtra("turns");
-        TextView choosenTurns = findViewById(R.id.choosenTurns);
-        choosenName.setText("" + choosenTurns);
+
+
+
+        TextView chosenTemp = findViewById(R.id.chosenTemp);
+        chosenTemp.setText("Επιλεγμένη θερμοκρασία: "+temperature);
+
+        TextView chosenTurns = findViewById(R.id.chosenTurns);
+        chosenTurns.setText("Επιλεγμένες στροφές: " + turns);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -115,10 +114,17 @@ public class OnGoing extends AppCompatActivity {
             }
         });
 
-        pause.setOnClickListener(new View.OnClickListener() {
+       /* pause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startStop();
+            }
+        });*/
+        pause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent start = new Intent(OnGoing.this,Squeeze.class);
+                startActivity(start);
             }
         });
     }

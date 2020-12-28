@@ -35,63 +35,56 @@
         app:navGraph="@navigation/mobile_navigation" />
 
     <TextView
-        android:id="@+id/onGoingmes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Πλύση σε εξέλιξη..."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
-
-    <TextView
-        android:id="@+id/choosenName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Escriba el mensaje y luego clickee el canal a ser enviado"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.297" />
-
-    <TextView
-        android:id="@+id/choosenTemp"
+        android:id="@+id/chosenName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintHorizontal_bias="0.237"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choosenName"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.172" />
 
     <TextView
-        android:id="@+id/choosenTurns"
+        android:id="@+id/chosenTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choosenTemp"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintTop_toBottomOf="@+id/chosenName"
+        app:layout_constraintVertical_bias="0.165" />
+
+    <TextView
+        android:id="@+id/chosenTurns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.235"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chosenTemp"
+        app:layout_constraintVertical_bias="0.204" />
 
     <TextView
         android:id="@+id/countDownMes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Τα ρούχα θα είναι έτοιμα σε..."
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.705" />
+        app:layout_constraintVertical_bias="0.617" />
 
     <TextView
         android:id="@+id/countDown"
@@ -103,7 +96,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/countDownMes"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintVertical_bias="0.097" />
 
     <Button
         android:id="@+id/pauseBtn"
