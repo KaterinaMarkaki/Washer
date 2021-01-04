@@ -87,9 +87,6 @@ public class Detail extends AppCompatActivity {
             temperatures.setSelector(android.R.color.holo_blue_light);
             adapter.notifyDataSetChanged();
 
-            textTemp.setText(textTemp.getText() + "" + temperaturesArray[position]);
-            textTemp.setVisibility(View.VISIBLE);
-
             }
                                             });
 
@@ -108,8 +105,6 @@ public class Detail extends AppCompatActivity {
                 turns.setSelector(android.R.color.holo_blue_light);
                 adapter.notifyDataSetChanged();
 
-                textTurns.setText(textTurns.getText()+""+turnsArray[position]);
-                textTurns.setVisibility(View.VISIBLE);
             }
         });
 
