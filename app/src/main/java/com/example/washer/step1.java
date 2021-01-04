@@ -2,11 +2,14 @@ package com.example.washer;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.anton46.stepsview.StepsView;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -21,6 +24,7 @@ import androidx.navigation.ui.NavigationUI;
 import org.w3c.dom.Text;
 
 public class step1 extends AppCompatActivity {
+
     private BottomNavigationItemView info;
     private BottomNavigationItemView home;
     private Button open;
@@ -29,10 +33,27 @@ public class step1 extends AppCompatActivity {
     private TextView alertTextViewForClose;
     private Button next;
 
+    private StepsView stepBar;
+    public static String[] steps = {"Αρχή","","","","","","Τέλος"};
+
+    private int current_state = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step1);
+
+        stepBar = findViewById(R.id.stepBar);
+
+        stepBar.setLabels(steps)
+                .setBarColorIndicator(Color.BLACK)
+                .setProgressColorIndicator(Color.RED)
+                .setLabelColorIndicator(Color.RED)
+                .setCompletedPosition(0)
+                .drawView();
+
+        stepBar.setCompletedPosition(current_state);
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -50,6 +71,17 @@ public class step1 extends AppCompatActivity {
         alertTextViewForOpen = (TextView) findViewById(R.id.AlertTextView);
         alertTextViewForClose = (TextView) findViewById(R.id.AlertTextView2);
         next = (Button) findViewById(R.id.nextbtn);
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(current_state<(steps.length-1)){
+                    current_state = current_state + 1;
+                    stepBar.setCompletedPosition(current_state).drawView();
+                }
+                Log.d("current_state = ",current_state +"");
+            }
+        });
     }
     public void onStart() {
         super.onStart();
@@ -106,6 +138,7 @@ public class step1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent start = new Intent(step1.this,step2.class);
+                start.putExtra("state",current_state+1);
                 startActivity(start);
             }
         });

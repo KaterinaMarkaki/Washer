@@ -38,7 +38,7 @@ public class Detail extends AppCompatActivity {
     String turn;
 
     private Button next;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +81,7 @@ public class Detail extends AppCompatActivity {
             temp = adapter.getItem(position);
             temp = temperaturesArray[position];
             textTemp.setVisibility(View.VISIBLE);
+
             }
                                             });
 

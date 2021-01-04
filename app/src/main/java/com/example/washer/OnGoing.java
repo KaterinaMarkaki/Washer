@@ -29,7 +29,7 @@ public class OnGoing extends AppCompatActivity {
     private TextView countDown;
     private Button pause;
     private CountDownTimer countDownTimer;
-    private long timeLeftInMillseconds = 600000;//10 min
+    private long timeLeftInMillseconds = 600;//10 min
     private boolean timeRunning;
 
 
@@ -65,6 +65,8 @@ public class OnGoing extends AppCompatActivity {
 
         countDown = findViewById(R.id.countDown);
         pause = findViewById(R.id.pauseBtn);
+
+        startStop();
 
         updateTimer();
     }
@@ -114,19 +116,13 @@ public class OnGoing extends AppCompatActivity {
             }
         });
 
-       /* pause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startStop();
-            }
-        });*/
-        pause.setOnClickListener(new View.OnClickListener() {
+        /*pause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent start = new Intent(OnGoing.this,Squeeze.class);
                 startActivity(start);
             }
-        });
+        });*/
     }
 
     public void startStop(){
@@ -137,7 +133,7 @@ public class OnGoing extends AppCompatActivity {
         }
     }
 
-    public void stopTimer(){
+    public void startTimer(){
         countDownTimer = new CountDownTimer(timeLeftInMillseconds,1000) {
             @Override
             public void onTick(long l) {
@@ -147,7 +143,8 @@ public class OnGoing extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-
+                Intent start = new Intent(OnGoing.this,Squeeze.class);
+                startActivity(start);
             }
         }.start();
 
@@ -168,7 +165,7 @@ public class OnGoing extends AppCompatActivity {
         countDown.setText(timeLeftText);
     }
 
-    public void startTimer(){
+    public void stopTimer(){
         countDownTimer.cancel();
         pause.setText("ΣΥΝΕΧΕΙΑ");
         timeRunning = false;

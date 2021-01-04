@@ -7,10 +7,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.anton46.stepsview.StepsView;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,10 +20,26 @@ public class step2 extends AppCompatActivity {
     private BottomNavigationItemView info;
     private BottomNavigationItemView home;
     private Button next;
+    private int current_state;
+    private StepsView stepBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step2);
+
+        current_state = getIntent().getIntExtra("state",0);
+
+        stepBar = findViewById(R.id.stepBar2);
+
+        stepBar.setLabels(step1.steps)
+                .setBarColorIndicator(Color.BLACK)
+                .setProgressColorIndicator(Color.RED)
+                .setLabelColorIndicator(Color.RED)
+                .setCompletedPosition(0)
+                .drawView();
+
+        stepBar.setCompletedPosition(current_state);
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_info)

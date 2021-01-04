@@ -8,8 +8,10 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -18,7 +20,12 @@ public class Squeeze_timer extends AppCompatActivity {
     private BottomNavigationItemView info;
     private BottomNavigationItemView home;
 
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMillseconds = 600;//10 min
+    private boolean timeRunning;
+
     private Button btn;
+    private TextView min;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +43,11 @@ public class Squeeze_timer extends AppCompatActivity {
         info = findViewById(R.id.navigation_info);
 
         btn = findViewById(R.id.Btn);
+        min = findViewById(R.id.min);
+
+        startStop();
+
+        updateTimer();
     }
 
     public void onStart(){
@@ -64,5 +76,51 @@ public class Squeeze_timer extends AppCompatActivity {
                 startActivity(start);
             }
         });
+    }
+
+    public void startStop(){
+        if(timeRunning){
+            stopTimer();
+        } else {
+            startTimer();
+        }
+    }
+
+    public void startTimer(){
+        countDownTimer = new CountDownTimer(timeLeftInMillseconds,1000) {
+            @Override
+            public void onTick(long l) {
+                timeLeftInMillseconds = l;
+                updateTimer();
+            }
+
+            @Override
+            public void onFinish() {
+                Intent start = new Intent(Squeeze_timer.this,Done.class);
+                startActivity(start);
+            }
+        }.start();
+
+        btn.setText("ΠΑΥΣΗ");
+        timeRunning = true;
+    }
+
+    private void updateTimer() {
+        int minutes = (int) timeLeftInMillseconds/60000;
+        int seconds = (int) timeLeftInMillseconds % 60000 / 1000;
+
+        String timeLeftText;
+        timeLeftText = "" + minutes;
+        timeLeftText = timeLeftText + ":";
+        if(seconds < 10) timeLeftText +="0";
+        timeLeftText += seconds;
+
+        min.setText(timeLeftText);
+    }
+
+    public void stopTimer(){
+        countDownTimer.cancel();
+        btn.setText("ΣΥΝΕΧΕΙΑ");
+        timeRunning = false;
     }
 }
