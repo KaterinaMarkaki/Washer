@@ -78,8 +78,16 @@ public class Detail extends AppCompatActivity {
                                                 @Override
                                                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                                                     // TODO Auto-generated method stub
+
+
             temp = adapter.getItem(position);
             temp = temperaturesArray[position];
+
+            temperatures.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+            temperatures.setSelector(android.R.color.holo_blue_light);
+            adapter.notifyDataSetChanged();
+
+            textTemp.setText(textTemp.getText() + "" + temperaturesArray[position]);
             textTemp.setVisibility(View.VISIBLE);
 
             }
@@ -94,6 +102,13 @@ public class Detail extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // TODO Auto-generated method stub
                 turn = adapter2.getItem(position);
+                turn = turnsArray[position];
+
+                turns.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+                turns.setSelector(android.R.color.holo_blue_light);
+                adapter.notifyDataSetChanged();
+
+                textTurns.setText(textTurns.getText()+""+turnsArray[position]);
                 textTurns.setVisibility(View.VISIBLE);
             }
         });
@@ -136,6 +151,7 @@ public class Detail extends AppCompatActivity {
                                     }
                                 }
         );
+
 
     }
 }

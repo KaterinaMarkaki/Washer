@@ -20,7 +20,8 @@
             android:layout_height="438dp"
             android:text="Θερμοκρασία:"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
 
         <TextView
             android:id="@+id/turnsTextViewID"
@@ -28,7 +29,8 @@
             android:layout_height="438dp"
             android:text="Στροφές:"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
     </LinearLayout>
 
 </LinearLayout>
