@@ -34,7 +34,7 @@ public class step1 extends AppCompatActivity {
     private Button next;
 
     private StepsView stepBar;
-    public static String[] steps = {"Αρχή","","","","","","Τέλος"};
+    private String[] steps = {"Αρχή","","","","","","Τέλος"};
 
     private int current_state = 0;
 

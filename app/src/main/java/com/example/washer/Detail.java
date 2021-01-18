@@ -8,7 +8,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.anton46.stepsview.StepsView;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -23,19 +26,19 @@ public class Detail extends AppCompatActivity {
     private BottomNavigationItemView info;
     private BottomNavigationItemView home;
 
-    private TextView textTemp;
-    private TextView textTurns;
 
     private ListView temperatures;
     private ListView turns;
-    //private Integer[] temperaturesArray = { 20, 30, 40, 60, 90 };
     private String[] temperaturesArray;
-    //private Integer[] turnsArray = { 400, 600, 800, 1000, 1200};
     private String[] turnsArray;
     private Activity context;
     String savedExtra;
     String temp;
     String turn;
+
+    private int current_state;
+    private StepsView stepBar;
+    private String[] steps = {"Αρχή","","","","","","Τέλος"};
 
     private Button next;
     
@@ -47,6 +50,19 @@ public class Detail extends AppCompatActivity {
         savedExtra = getIntent().getStringExtra("program");
         TextView myText = (TextView) findViewById(R.id.textID);
         myText.setText("Επιλεγμένο πρόγραμμα: "+savedExtra);
+
+        current_state = getIntent().getIntExtra("state",0);
+
+        stepBar = findViewById(R.id.stepBar4);
+
+        stepBar.setLabels(steps)
+                .setBarColorIndicator(Color.BLACK)
+                .setProgressColorIndicator(Color.RED)
+                .setLabelColorIndicator(Color.RED)
+                .setCompletedPosition(0)
+                .drawView();
+
+        stepBar.setCompletedPosition(current_state);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -60,9 +76,6 @@ public class Detail extends AppCompatActivity {
         info =  findViewById(R.id.navigation_info);
 
         next = (Button) findViewById(R.id.next);
-
-        textTemp = (TextView) findViewById(R.id.textTemp);
-        textTurns = (TextView) findViewById(R.id.textTurns);
 
         temperatures = (ListView) findViewById(R.id.temp);
         turns = (ListView) findViewById(R.id.turns);
@@ -105,6 +118,17 @@ public class Detail extends AppCompatActivity {
                 turns.setSelector(android.R.color.holo_blue_light);
                 adapter.notifyDataSetChanged();
 
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(current_state<(steps.length-1)){
+                    current_state = current_state + 1;
+                    stepBar.setCompletedPosition(current_state).drawView();
+                }
+                Log.d("current_state = ",current_state +"");
             }
         });
 

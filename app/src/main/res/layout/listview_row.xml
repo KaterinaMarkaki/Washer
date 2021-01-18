@@ -32,7 +32,8 @@
             android:layout_height="77dp"
             android:text="@string/dark"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
 
     </LinearLayout>

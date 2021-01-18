@@ -9,6 +9,7 @@ import androidx.navigation.ui.NavigationUI;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,6 +23,7 @@ public class step2 extends AppCompatActivity {
     private Button next;
     private int current_state;
     private StepsView stepBar;
+    private String[] steps = {"","Απορρυπαντικό","","","","","Τέλος"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,7 @@ public class step2 extends AppCompatActivity {
 
         stepBar = findViewById(R.id.stepBar2);
 
-        stepBar.setLabels(step1.steps)
+        stepBar.setLabels(steps)
                 .setBarColorIndicator(Color.BLACK)
                 .setProgressColorIndicator(Color.RED)
                 .setLabelColorIndicator(Color.RED)
@@ -50,6 +52,17 @@ public class step2 extends AppCompatActivity {
         home =  findViewById(R.id.navigation_home);
         info =  findViewById(R.id.navigation_info);
         next = (Button) findViewById(R.id.nextbtn2);
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(current_state<(steps.length-1)){
+                    current_state = current_state + 1;
+                    stepBar.setCompletedPosition(current_state).drawView();
+                }
+                Log.d("current_state = ",current_state +"");
+            }
+        });
     }
     public void onStart() {
         super.onStart();
@@ -74,6 +87,7 @@ public class step2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent start = new Intent(step2.this,step3.class);
+                start.putExtra("state",current_state+1);
                 startActivity(start);
             }
         });

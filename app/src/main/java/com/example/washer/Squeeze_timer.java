@@ -21,7 +21,7 @@ public class Squeeze_timer extends AppCompatActivity {
     private BottomNavigationItemView home;
 
     private CountDownTimer countDownTimer;
-    private long timeLeftInMillseconds = 600;//10 min
+    private long timeLeftInMillseconds = 60000;//10 min
     private boolean timeRunning;
 
     private Button btn;
