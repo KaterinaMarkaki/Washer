@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bez"
+    android:background="@color/mpez"
     android:padding="10dp">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -78,6 +78,7 @@
         android:layout_below="@+id/openbtn"
         android:layout_centerHorizontal="true"
         android:text="Η ΠΟΡΤΑ ΕΙΝΑΙ ΑΝΟΙΧΤΗ"
+        android:textColor="#131313"
         android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
@@ -87,7 +88,6 @@
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment"
         app:layout_constraintVertical_bias="0.417"
         tools:ignore="MissingConstraints"
-        android:textColor="#FFFFFF"
         android:textStyle="bold"/>
 
     <TextView
@@ -105,7 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/closebtn"
         app:layout_constraintVertical_bias="0.177"
         tools:ignore="MissingConstraints"
-        android:textColor="#FFFFFF"
+        android:textColor="#131313"
         android:textSize="20sp"
         android:textStyle="bold" />
 

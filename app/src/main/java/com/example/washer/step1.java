@@ -46,7 +46,7 @@ public class step1 extends AppCompatActivity {
         stepBar = findViewById(R.id.stepBar);
 
         stepBar.setLabels(steps)
-                .setBarColorIndicator(Color.BLACK)
+                .setBarColorIndicator(Color.DKGRAY)
                 .setProgressColorIndicator(Color.RED)
                 .setLabelColorIndicator(Color.RED)
                 .setCompletedPosition(0)

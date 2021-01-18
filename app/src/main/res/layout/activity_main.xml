@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bez"
+    android:background="@color/mpez"
     tools:context=".MainActivity">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="207dp"
         android:layout_height="51dp"
         android:text="ΠΛΥΣΙΜΟ ΡΟΥΧΩΝ"
-        android:textColor="#FFFFFF"
+        android:textColor="#070707"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +26,7 @@
         android:layout_width="177dp"
         android:layout_height="33dp"
         android:text="ΠΛΗΡΟΦΟΡΙΕΣ"
-        android:textColor="#FFFFFF"
+        android:textColor="#0B0A0A"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,7 +40,7 @@
         android:layout_width="177dp"
         android:layout_height="33dp"
         android:text="@string/wel"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +61,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.051"
-        app:srcCompat="@drawable/wash" />
+        app:srcCompat="@drawable/washer" />
 
     <ImageView
         android:id="@+id/imageView3"

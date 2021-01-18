@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">PITSOS</string>
     <string name="power" />
-    <string name="mes">ΚΑΤΑΣΤΑΣΗ ΠΛΥΝΤΗΡΙΟΥ: ΚΛΕΙΣΤΟ</string>
-    <string name="com">ΕΝΕΡΓΟΠΟΙΗΣΗ ΠΛΥΝΤΗΡΙΟΥ</string>
+    <string name="mes">ΚΑΤΑΣΤΑΣΗ ΠΛΥΝΤΗΡΙΟΥ:                ΚΛΕΙΣΤΟ</string>
+    <string name="com">ΕΝΕΡΓΟΠΟΙΗΣΗ
+        ΠΛΥΝΤΗΡΙΟΥ</string>
     <string name="wel">ΚΑΛΩΣ ΗΡΘΑΤΕ</string>
     <string name="info">ΠΛΗΡΟΦΟΡΙΕΣ</string>
     <string name="quest">TODO</string>
