@@ -97,7 +97,7 @@ public class Detail extends AppCompatActivity {
             temp = temperaturesArray[position];
 
             temperatures.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-            temperatures.setSelector(android.R.color.holo_blue_light);
+            temperatures.setSelector(android.R.color.background_light);
             adapter.notifyDataSetChanged();
 
             }
@@ -115,7 +115,7 @@ public class Detail extends AppCompatActivity {
                 turn = turnsArray[position];
 
                 turns.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-                turns.setSelector(android.R.color.holo_blue_light);
+                turns.setSelector(android.R.color.background_light);
                 adapter.notifyDataSetChanged();
 
             }

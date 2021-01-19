@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/darkclothes_removebg_preview" />
 
+
     <LinearLayout
         android:id="@+id/programname"
         android:layout_width="wrap_content"
