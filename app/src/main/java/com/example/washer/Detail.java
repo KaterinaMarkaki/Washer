@@ -32,6 +32,7 @@ public class Detail extends AppCompatActivity {
     private String[] temperaturesArray;
     private String[] turnsArray;
     private Activity context;
+    int selectedPos;
     String savedExtra;
     String temp;
     String turn;
@@ -52,7 +53,7 @@ public class Detail extends AppCompatActivity {
         myText.setText("Επιλεγμένο πρόγραμμα: "+savedExtra);
 
         current_state = getIntent().getIntExtra("state",0);
-
+        selectedPos = getIntent().getIntExtra("position", 0);
         stepBar = findViewById(R.id.stepBar4);
 
         stepBar.setLabels(steps)
@@ -97,6 +98,7 @@ public class Detail extends AppCompatActivity {
             temp = temperaturesArray[position];
 
             temperatures.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+            //   temperatures.setSelection(selectedPos);
             temperatures.setSelector(android.R.color.background_light);
             adapter.notifyDataSetChanged();
 
