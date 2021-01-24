@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/programTxt"
         android:layout_width="207dp"
         android:layout_height="51dp"
         android:text="ΠΛΥΣΙΜΟ ΡΟΥΧΩΝ"
@@ -22,7 +23,7 @@
         app:layout_constraintVertical_bias="0.484" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/infoTxt"
         android:layout_width="177dp"
         android:layout_height="33dp"
         android:text="ΠΛΗΡΟΦΟΡΙΕΣ"
@@ -36,7 +37,7 @@
         app:layout_constraintVertical_bias="0.815" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/welcomeTxt"
         android:layout_width="177dp"
         android:layout_height="33dp"
         android:text="@string/wel"

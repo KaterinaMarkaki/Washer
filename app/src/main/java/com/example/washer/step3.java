@@ -32,6 +32,8 @@ public class step3 extends AppCompatActivity {
     String[] nameArray = {"ΣΚΟΥΡΟΧΡΩΜΑ","ΜΑΛΛΙΝΑ","ΛΕΥΚΑ","ΚΟΥΡΤΙΝΕΣ","ΓΡΗΓΟΡΗ ΠΛΥΣΗ","ΟΙΚΟΝΟΜΙΚΟ"};
     String[] infoArray = {"έχουν όλα σκούρο χρώμα.","είναι όλα μάλλινα.","έχουν όλα λευκό χρώμα.",
     "είναι κουρτίνες/σεντόνια.","είναι ελαφρώς λερωμένα.","είναι ελαφρώς λερωμένα."};
+    int [] suggestedTemp = {40,20,60,60,20,40};
+    int [] suggestedTurns = {800,400,800,400,800,800};
     Integer[] imageArray = {R.drawable.darkclothes_removebg_preview,R.drawable.wool_removebg_preview,R.drawable.white_removebg_preview,
             R.drawable.kourtina_removebg_preview,R.drawable.quick_removebg_preview,R.drawable.eco2_removebg_preview};
     ListView listView;
@@ -97,6 +99,8 @@ public class step3 extends AppCompatActivity {
                 builder.setCancelable(true);
                 builder.setTitle("ΟΔΗΓΙΑ");
                 builder.setMessage("Επιλέξτε αυτή τη λειτουργία αν όλα τα ρούχα που θέλετε να πλύνετε "+infoArray[position]);
+                builder.setMessage("Επιλέξτε αυτή τη λειτουργία αν όλα τα ρούχα που θέλετε να πλύνετε "+infoArray[position] + "\nΠροτεινόμενη θερμοκρασία: " +suggestedTemp[position]
+                        + "\nΠροτεινόμενες στροφές: " + suggestedTurns[position]);
                 builder.setNegativeButton("OXI, ΔΕΝ ΤΟ ΘΕΛΩ", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -111,6 +115,7 @@ public class step3 extends AppCompatActivity {
                         String program = nameArray[position];
                         intent.putExtra("program",program);
                         intent.putExtra("state",current_state+1);
+                        intent.putExtra("position", position);
                         startActivity(intent);
                     }
                 });
