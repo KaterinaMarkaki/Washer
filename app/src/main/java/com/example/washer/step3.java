@@ -98,7 +98,6 @@ public class step3 extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(step3.this);
                 builder.setCancelable(true);
                 builder.setTitle("ΟΔΗΓΙΑ");
-                builder.setMessage("Επιλέξτε αυτή τη λειτουργία αν όλα τα ρούχα που θέλετε να πλύνετε "+infoArray[position]);
                 builder.setMessage("Επιλέξτε αυτή τη λειτουργία αν όλα τα ρούχα που θέλετε να πλύνετε "+infoArray[position] + "\nΠροτεινόμενη θερμοκρασία: " +suggestedTemp[position]
                         + "\nΠροτεινόμενες στροφές: " + suggestedTurns[position]);
                 builder.setNegativeButton("OXI, ΔΕΝ ΤΟ ΘΕΛΩ", new DialogInterface.OnClickListener() {
