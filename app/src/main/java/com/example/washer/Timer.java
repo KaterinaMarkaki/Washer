@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -12,10 +13,12 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -26,11 +29,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class Timer extends AppCompatActivity {
     private BottomNavigationItemView info;
@@ -44,6 +48,7 @@ public class Timer extends AppCompatActivity {
 
 
     private EditText mEditTextInput;
+    private EditText mEditTextInput2;
     private TextView mTextViewCountDown;
     private Button mButtonSet;
     private Button mButtonStartPause;
@@ -54,6 +59,11 @@ public class Timer extends AppCompatActivity {
     private long mStartTimeInMillis;
     private long mTimeLeftInMillis;
     private long mEndTime;
+
+    private Button nightBtn;
+    private Date cal = Calendar.getInstance().getTime();
+
+    String nightTime = "11:00:00 AM";
 
     protected  void onCreate(Bundle savedInstanceState) {
 
@@ -70,7 +80,12 @@ public class Timer extends AppCompatActivity {
         home = findViewById(R.id.navigation_home);
         info = findViewById(R.id.navigation_info);
 
+        nightBtn = (Button) findViewById(R.id.nightBtn);
+
+
+
         mEditTextInput = findViewById(R.id.edit_text_input);
+        mEditTextInput2 = findViewById(R.id.edit_text_input2);
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
         mButtonSet = findViewById(R.id.button_set);
         mButtonStartPause = findViewById(R.id.button_start_pause);
@@ -172,17 +187,24 @@ public class Timer extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String input = mEditTextInput.getText().toString();
-                if (input.length() == 0) {
-                    Toast.makeText(Timer.this, "Field can't be empty", Toast.LENGTH_SHORT).show();
+                String input2 = mEditTextInput2.getText().toString();
+                if (input.length() == 0 && input2.length() == 0) {
+                    Toast.makeText(Timer.this, "Το πεδίο δεν μπορεί να είναι άδειο", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                long millisInput = Long.parseLong(input) * 60000;
-                if (millisInput == 0) {
-                    Toast.makeText(Timer.this, "Please enter a positive number", Toast.LENGTH_SHORT).show();
+                long millisInput,millisInput2;
+                if(input.length() != 0) millisInput = Long.parseLong(input) * 60000;
+                else millisInput = 0;
+                if(input2.length() != 0) millisInput2 = Long.parseLong(input2) * 60000 * 60;
+                else millisInput2 = 0;
+
+                if (millisInput == 0 && millisInput2 == 0) {
+                    Toast.makeText(Timer.this, "Παρακαλώ εισάχετε ένα θετικό αριθμό", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                setTime(millisInput);
+                setTime(millisInput+millisInput2);
                 mEditTextInput.setText("");
+                mEditTextInput2.setText("");
             }
         });
         mButtonStartPause.setOnClickListener(new View.OnClickListener() {
@@ -333,6 +355,71 @@ public class Timer extends AppCompatActivity {
             }
         }
 
+        nightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                /*DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+                String formattedDate = myObj.format(myFormatObj);
+
+                Date currentTime = Calendar.getInstance().getTime();
+                long diff = currentTime.getTime() - cal.getTime();
+                long diffSeconds = diff / 1000;
+                long diffMinutes = diff / (60 * 1000);
+                long diffHours = diff / (60 * 60 * 1000);
+                System.out.println("Time in seconds: " + diffSeconds + " seconds.");
+                System.out.println("Time in minutes: " + diffMinutes + " minutes.");
+                System.out.println("Time in hours: " + diffHours + " hours.");*/
+
+                SimpleDateFormat sdf = new SimpleDateFormat("K:mm:ss a");
+
+                Date currentTime = Calendar.getInstance().getTime();
+
+                String time2 = sdf.format(currentTime);
+
+                System.out.println(nightTime);
+                System.out.println(time2);
+
+                try {
+                    Date dateObj1 = sdf.parse(nightTime);
+                    Date dateObj2 = sdf.parse(time2);
+
+                    System.out.println(nightTime);
+                    System.out.println(time2);
+
+                DecimalFormat Formatter = new DecimalFormat("###,###");
+
+                long diff = dateObj1.getTime() - dateObj2.getTime();
+                int diffhours = (int) (diff / (60 * 60 * 1000));
+                if(diffhours < 0) diffhours = 24 + diffhours;
+                System.out.println("difference between hours: " + Formatter.format(diffhours));
+
+
+                int diffmin = (int) (diff / (60 * 1000));
+
+                if(diffmin < 0) diffmin = 24 * 60 - diffmin;
+
+                if(diffhours > 0) diffmin = diffmin / diffhours /60;
+
+                System.out.println("difference between minutes: " + Formatter.format(diffmin));
+
+                int diffsec = (int) (diff / (1000));
+                if(diffsec<0) diffsec = 24*60*60 + diffsec;
+
+                if(diffhours>0) diffsec = diffsec / diffhours / 60 / 60;
+                if(diffmin>0) diffsec = diffsec / diffmin / 60 ;
+
+                System.out.println("difference between seconds: " + Formatter.format(diffsec));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
     }
+
 
 }

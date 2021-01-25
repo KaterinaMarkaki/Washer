@@ -29,7 +29,7 @@ public class OnGoing extends AppCompatActivity {
     private TextView countDown;
     private Button pause;
     private CountDownTimer countDownTimer;
-    private long timeLeftInMillseconds = 60000;//10 min
+    private long timeLeftInMillseconds = 600;//10 min
     private boolean timeRunning;
 
 

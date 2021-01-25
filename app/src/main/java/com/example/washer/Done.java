@@ -7,6 +7,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,11 +24,17 @@ public class Done extends AppCompatActivity {
     private Button turnOff;
     private TextView alertTextOpen;
     private TextView alertTextClose;
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_done);
+
+        mp = MediaPlayer.create(this,R.raw.tune);
+        mp.start();
+        mp.release();
+        mp = null;
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -90,5 +97,25 @@ public class Done extends AppCompatActivity {
 
 
 
+    }
+
+    public void play(View v) {
+        if (mp == null) {
+            mp = MediaPlayer.create(this, R.raw.tune);
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    stopPlayer();
+                }
+            });
+        }
+        mp.start();
+    }
+
+    private void stopPlayer() {
+        if (mp != null) {
+            mp.release();
+            mp = null;
+        }
     }
 }
