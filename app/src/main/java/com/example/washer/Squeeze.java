@@ -20,6 +20,7 @@ public class Squeeze extends AppCompatActivity {
 
     private Button yes;
     private Button no;
+    private int current_state;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,8 @@ public class Squeeze extends AppCompatActivity {
 
         yes = findViewById(R.id.yesBtn);
         no = findViewById(R.id.noBtn);
+
+        current_state = getIntent().getIntExtra("state",0);
     }
 
     public void onStart() {
@@ -70,6 +73,7 @@ public class Squeeze extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent start = new Intent(Squeeze.this,Squeeze_timer.class);
+                start.putExtra("state",current_state);
                 startActivity(start);
             }
         });

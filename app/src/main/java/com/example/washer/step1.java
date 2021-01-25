@@ -34,7 +34,7 @@ public class step1 extends AppCompatActivity {
     private Button next;
 
     private StepsView stepBar;
-    private String[] steps = {"Αρχή","","","","","","Τέλος"};
+    private String[] steps = {"Αρχή","","","","","","","Τέλος"};
 
     private int current_state = 0;
 
@@ -46,9 +46,9 @@ public class step1 extends AppCompatActivity {
         stepBar = findViewById(R.id.stepBar);
 
         stepBar.setLabels(steps)
-                .setBarColorIndicator(Color.DKGRAY)
-                .setProgressColorIndicator(Color.RED)
-                .setLabelColorIndicator(Color.RED)
+                .setBarColorIndicator(Color.LTGRAY)
+                .setProgressColorIndicator(Color.MAGENTA)
+                .setLabelColorIndicator(Color.BLACK)
                 .setCompletedPosition(0)
                 .drawView();
 

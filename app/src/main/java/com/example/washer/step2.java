@@ -23,7 +23,7 @@ public class step2 extends AppCompatActivity {
     private Button next;
     private int current_state;
     private StepsView stepBar;
-    private String[] steps = {"","Απορρυπαντικό","","","","","Τέλος"};
+    private String[] steps = {"","Απορρυπαντικό","","","","","","Τέλος"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +34,9 @@ public class step2 extends AppCompatActivity {
         stepBar = findViewById(R.id.stepBar2);
 
         stepBar.setLabels(steps)
-                .setBarColorIndicator(Color.BLACK)
-                .setProgressColorIndicator(Color.RED)
-                .setLabelColorIndicator(Color.RED)
+                .setBarColorIndicator(Color.LTGRAY)
+                .setProgressColorIndicator(Color.MAGENTA)
+                .setLabelColorIndicator(Color.BLACK)
                 .setCompletedPosition(0)
                 .drawView();
 

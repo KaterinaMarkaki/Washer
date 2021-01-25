@@ -2,6 +2,7 @@ package com.example.washer;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.anton46.stepsview.StepsView;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -27,6 +29,9 @@ public class Ready extends AppCompatActivity {
     private String name;
     private String temperature;
     private String turns;
+    private int current_state;
+    private StepsView stepBar;
+    private String[] steps = {"","","","","Ρύθμιση ώρας","","","Τέλος"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,18 @@ public class Ready extends AppCompatActivity {
         name = getIntent().getStringExtra("program");
         temperature = getIntent().getStringExtra("temperature");
         turns = getIntent().getStringExtra("turns");
+
+        current_state = getIntent().getIntExtra("state",0);
+        stepBar = findViewById(R.id.stepBar);
+
+        stepBar.setLabels(steps)
+                .setBarColorIndicator(Color.LTGRAY)
+                .setProgressColorIndicator(Color.MAGENTA)
+                .setLabelColorIndicator(Color.BLACK)
+                .setCompletedPosition(0)
+                .drawView();
+
+        stepBar.setCompletedPosition(current_state);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -79,6 +96,7 @@ public class Ready extends AppCompatActivity {
                 start.putExtra("program2",name);
                 start.putExtra("temperature",temperature);
                 start.putExtra("turns",turns);
+                start.putExtra("state",current_state+1);
                 startActivity(start);
             }
         });

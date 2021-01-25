@@ -27,7 +27,7 @@ public class step3 extends AppCompatActivity {
 
     private int current_state;
     private StepsView stepBar;
-    private String[] steps = {"","","Πρόγραμμα","","","","Τέλος"};
+    private String[] steps = {"","","Πρόγραμμα","","","","","Τέλος"};
 
     String[] nameArray = {"ΣΚΟΥΡΟΧΡΩΜΑ","ΜΑΛΛΙΝΑ","ΛΕΥΚΑ","ΚΟΥΡΤΙΝΕΣ","ΓΡΗΓΟΡΗ ΠΛΥΣΗ","ΟΙΚΟΝΟΜΙΚΟ"};
     String[] infoArray = {"έχουν όλα σκούρο χρώμα.","είναι όλα μάλλινα.","έχουν όλα λευκό χρώμα.",
@@ -48,9 +48,9 @@ public class step3 extends AppCompatActivity {
         stepBar = findViewById(R.id.stepBar3);
 
         stepBar.setLabels(steps)
-                .setBarColorIndicator(Color.BLACK)
-                .setProgressColorIndicator(Color.RED)
-                .setLabelColorIndicator(Color.RED)
+                .setBarColorIndicator(Color.LTGRAY)
+                .setProgressColorIndicator(Color.MAGENTA)
+                .setLabelColorIndicator(Color.BLACK)
                 .setCompletedPosition(0)
                 .drawView();
 

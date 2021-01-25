@@ -6,6 +6,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -39,10 +40,16 @@ public class Detail extends AppCompatActivity {
 
     private int current_state;
     private StepsView stepBar;
-    private String[] steps = {"Αρχή","","","","","","Τέλος"};
+    private String[] steps = {"","","","Ρύθμιση πλύσης","","","","Τέλος"};
 
+    int [] suggestedTemp = {40,20,60,60,20,40};
+    int [] suggestedTurns = {800,400,800,400,800,800};
+
+    private TextView suggTemp;
+    private TextView suggTurns;
     private Button next;
     
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,12 +61,18 @@ public class Detail extends AppCompatActivity {
 
         current_state = getIntent().getIntExtra("state",0);
         selectedPos = getIntent().getIntExtra("position", 0);
+        suggTemp = (TextView) findViewById(R.id.SuggTemp) ;
+        suggTurns = (TextView) findViewById(R.id.SuggTurns) ;
+
+        suggTemp.setText("Προτεινόμενη θερμοκρασία: " + suggestedTemp[selectedPos]);
+        suggTurns.setText("Προτεινόμενες στροφές: "+ suggestedTurns[selectedPos]);
+
         stepBar = findViewById(R.id.stepBar4);
 
         stepBar.setLabels(steps)
-                .setBarColorIndicator(Color.BLACK)
-                .setProgressColorIndicator(Color.RED)
-                .setLabelColorIndicator(Color.RED)
+                .setBarColorIndicator(Color.LTGRAY)
+                .setProgressColorIndicator(Color.MAGENTA)
+                .setLabelColorIndicator(Color.BLACK)
                 .setCompletedPosition(0)
                 .drawView();
 
@@ -93,8 +106,8 @@ public class Detail extends AppCompatActivity {
                                                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                                                     // TODO Auto-generated method stub
 
-
             temp = adapter.getItem(position);
+
             temp = temperaturesArray[position];
 
             temperatures.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -164,6 +177,7 @@ public class Detail extends AppCompatActivity {
                                         extras.putString("program",savedExtra);
                                         extras.putString("temperature",temp);
                                         extras.putString("turns",turn);
+                                        start.putExtra("state",current_state+1);
                                         //start.putExtra("program",savedExtra);
                                         //start.putExtra("temperature",temp);
                                         //start.putExtra("turns",turn);

@@ -2,6 +2,7 @@ package com.example.washer;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.anton46.stepsview.StepsView;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,11 +34,27 @@ public class OnGoing extends AppCompatActivity {
     private long timeLeftInMillseconds = 600;//10 min
     private boolean timeRunning;
 
+    private int current_state;
+    private StepsView stepBar;
+    private String[] steps = {"","","","","","Πλύση","","Τέλος"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ongoing);
+
+        current_state = getIntent().getIntExtra("state",0);
+        stepBar = findViewById(R.id.stepBar);
+
+        stepBar.setLabels(steps)
+                .setBarColorIndicator(Color.LTGRAY)
+                .setProgressColorIndicator(Color.MAGENTA)
+                .setLabelColorIndicator(Color.BLACK)
+                .setCompletedPosition(0)
+                .drawView();
+
+        stepBar.setCompletedPosition(current_state);
 
         name = getIntent().getStringExtra("program2");
         TextView chosenName = findViewById(R.id.chosenName);
@@ -44,7 +62,6 @@ public class OnGoing extends AppCompatActivity {
 
         temperature = getIntent().getStringExtra("temperature");
         turns = getIntent().getStringExtra("turns");
-
 
 
         TextView chosenTemp = findViewById(R.id.chosenTemp);
@@ -116,13 +133,30 @@ public class OnGoing extends AppCompatActivity {
             }
         });
 
-        /*pause.setOnClickListener(new View.OnClickListener() {
+        pause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent start = new Intent(OnGoing.this,Squeeze.class);
-                startActivity(start);
+                AlertDialog.Builder builder = new AlertDialog.Builder(OnGoing.this);
+                builder.setCancelable(true);
+                builder.setMessage("Το πλύσιμο των ρούχων διακόπηκε προσωρινά.");
+                builder.setNegativeButton("ΣΤΑΜΑΤΑ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // dialogInterface.cancel();
+                        Intent start = new Intent(OnGoing.this,step3.class);
+                        startActivity(start);
+                    }
+                });
+
+                builder.setPositiveButton("ΣΥΝΕΧΙΣΕ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                builder.show();
             }
-        });*/
+        });
     }
 
     public void startStop(){
@@ -144,6 +178,7 @@ public class OnGoing extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Intent start = new Intent(OnGoing.this,Squeeze.class);
+                start.putExtra("state",current_state+1);
                 startActivity(start);
             }
         }.start();
