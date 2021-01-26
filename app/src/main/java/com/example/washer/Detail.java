@@ -64,7 +64,7 @@ public class Detail extends AppCompatActivity {
         suggTemp = (TextView) findViewById(R.id.SuggTemp) ;
         suggTurns = (TextView) findViewById(R.id.SuggTurns) ;
 
-        suggTemp.setText("Προτεινόμενη θερμοκρασία: " + suggestedTemp[selectedPos]);
+        suggTemp.setText("Προτεινόμενη θερμοκρασία: " + suggestedTemp[selectedPos]+"°C");
         suggTurns.setText("Προτεινόμενες στροφές: "+ suggestedTurns[selectedPos]);
 
         stepBar = findViewById(R.id.stepBar4);

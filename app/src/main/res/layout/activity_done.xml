@@ -35,6 +35,27 @@
         app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/mobile_navigation" />
 
+    <ImageButton
+        android:id="@+id/deactivationBtn"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/btn_background"
+        android:contentDescription="@string/power"
+        android:scaleType="centerInside"
+        android:src="@drawable/power_btn2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.891"
+        tools:ignore="MissingConstraints" />
+
     <com.anton46.stepsview.StepsView
         android:id="@+id/stepBar"
         android:layout_width="388dp"
@@ -114,26 +135,15 @@
         android:id="@+id/note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="*Μη ξεχάσετε να κλείσετε το πλυντήριό σας."
-        android:textSize="18sp"
+        android:text="Μη ξεχάσετε να κλείσετε το πλυντήριό σας."
         android:textColor="#131313"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/closeBtn"
         app:layout_constraintVertical_bias="0.26" />
-
-    <Button
-        android:id="@+id/deactivationBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Απενεργοποιηση"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/note"
-        app:layout_constraintVertical_bias="0.308" />
 
     <TextView
         android:id="@+id/open"

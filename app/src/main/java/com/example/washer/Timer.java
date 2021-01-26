@@ -63,7 +63,6 @@ public class Timer extends AppCompatActivity {
     private Button nightBtn;
     private Date cal = Calendar.getInstance().getTime();
 
-    String nightTime = "11:00:00 AM";
 
     protected  void onCreate(Bundle savedInstanceState) {
 
@@ -354,70 +353,6 @@ public class Timer extends AppCompatActivity {
                 startTimer();
             }
         }
-
-        nightBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                /*DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm:ss");
-
-                String formattedDate = myObj.format(myFormatObj);
-
-                Date currentTime = Calendar.getInstance().getTime();
-                long diff = currentTime.getTime() - cal.getTime();
-                long diffSeconds = diff / 1000;
-                long diffMinutes = diff / (60 * 1000);
-                long diffHours = diff / (60 * 60 * 1000);
-                System.out.println("Time in seconds: " + diffSeconds + " seconds.");
-                System.out.println("Time in minutes: " + diffMinutes + " minutes.");
-                System.out.println("Time in hours: " + diffHours + " hours.");*/
-
-                SimpleDateFormat sdf = new SimpleDateFormat("K:mm:ss a");
-
-                Date currentTime = Calendar.getInstance().getTime();
-
-                String time2 = sdf.format(currentTime);
-
-                System.out.println(nightTime);
-                System.out.println(time2);
-
-                try {
-                    Date dateObj1 = sdf.parse(nightTime);
-                    Date dateObj2 = sdf.parse(time2);
-
-                    System.out.println(nightTime);
-                    System.out.println(time2);
-
-                DecimalFormat Formatter = new DecimalFormat("###,###");
-
-                long diff = dateObj1.getTime() - dateObj2.getTime();
-                int diffhours = (int) (diff / (60 * 60 * 1000));
-                if(diffhours < 0) diffhours = 24 + diffhours;
-                System.out.println("difference between hours: " + Formatter.format(diffhours));
-
-
-                int diffmin = (int) (diff / (60 * 1000));
-
-                if(diffmin < 0) diffmin = 24 * 60 - diffmin;
-
-                if(diffhours > 0) diffmin = diffmin / diffhours /60;
-
-                System.out.println("difference between minutes: " + Formatter.format(diffmin));
-
-                int diffsec = (int) (diff / (1000));
-                if(diffsec<0) diffsec = 24*60*60 + diffsec;
-
-                if(diffhours>0) diffsec = diffsec / diffhours / 60 / 60;
-                if(diffmin>0) diffsec = diffsec / diffmin / 60 ;
-
-                System.out.println("difference between seconds: " + Formatter.format(diffsec));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
 
     }
 

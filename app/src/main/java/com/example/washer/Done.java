@@ -12,6 +12,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.anton46.stepsview.StepsView;
@@ -23,7 +24,7 @@ public class Done extends AppCompatActivity {
     private BottomNavigationItemView home;
     private Button on;
     private Button off;
-    private Button turnOff;
+    private ImageButton turnOff;
     private TextView alertTextOpen;
     private TextView alertTextClose;
     MediaPlayer mp;
@@ -65,7 +66,7 @@ public class Done extends AppCompatActivity {
         info = findViewById(R.id.navigation_info);
         on = (Button) findViewById(R.id.openBtn);
         off = (Button) findViewById(R.id.closeBtn);
-        turnOff = (Button) findViewById(R.id.deactivationBtn);
+        turnOff = (ImageButton) findViewById(R.id.deactivationBtn);
         alertTextOpen = (TextView) findViewById(R.id.open);
         alertTextClose = (TextView) findViewById(R.id.close);
     }

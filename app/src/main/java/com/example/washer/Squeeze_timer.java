@@ -25,12 +25,14 @@ public class Squeeze_timer extends AppCompatActivity {
     private BottomNavigationItemView home;
 
     private CountDownTimer countDownTimer;
-    private long timeLeftInMillseconds = 60000;//10 min
+    private long timeLeftInMillseconds;//10 min
     private boolean timeRunning;
 
     private Button btn;
     private TextView min;
+    private TextView text;
 
+    private int code;
     private int current_state;
     private StepsView stepBar;
     private String[] steps = {"","","","","","","Στύψιμο",""};
@@ -54,6 +56,17 @@ public class Squeeze_timer extends AppCompatActivity {
         min = findViewById(R.id.min);
 
         current_state = getIntent().getIntExtra("state",0);
+        code = getIntent().getIntExtra("code",0);
+
+        text = findViewById(R.id.mes);
+
+        if(code==1){
+            text.setText("Τα ρούχα θα είναι έτοιμα σε...");
+            timeLeftInMillseconds = 60000;//10 min
+        } else if (code==0){
+            text.setText("Η πλύση θα ξεκινήσει σε...");
+            timeLeftInMillseconds = getIntent().getLongExtra("mill",0);
+        }
 
         stepBar = findViewById(R.id.stepBar);
 

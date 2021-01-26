@@ -74,6 +74,7 @@ public class Squeeze extends AppCompatActivity {
             public void onClick(View view) {
                 Intent start = new Intent(Squeeze.this,Squeeze_timer.class);
                 start.putExtra("state",current_state);
+                start.putExtra("code",1);
                 startActivity(start);
             }
         });
