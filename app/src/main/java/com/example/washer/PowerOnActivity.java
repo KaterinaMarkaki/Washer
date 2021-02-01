@@ -17,6 +17,7 @@ public class PowerOnActivity extends AppCompatActivity {
 
     private ImageButton powerButton;
     private ImageButton soundBtn;
+    public Boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class PowerOnActivity extends AppCompatActivity {
         powerButton = (ImageButton) findViewById(R.id.btnCircle);
         soundBtn = (ImageButton) findViewById(R.id.sound);
 
+        flag = true;
+
         soundBtn.setOnClickListener(new View.OnClickListener() {
 
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -32,6 +35,7 @@ public class PowerOnActivity extends AppCompatActivity {
             public void onClick(View view) {
                 soundBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.btn_background));
                 soundBtn.setImageDrawable(getResources().getDrawable(R.drawable.sound_off_removebg_preview));
+                flag = false;
             }
         });
     }

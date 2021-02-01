@@ -1,5 +1,7 @@
 package com.example.washer;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -13,6 +15,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -64,8 +67,8 @@ public class Detail extends AppCompatActivity {
         suggTemp = (TextView) findViewById(R.id.SuggTemp) ;
         suggTurns = (TextView) findViewById(R.id.SuggTurns) ;
 
-        suggTemp.setText("Προτεινόμενη θερμοκρασία: " + suggestedTemp[selectedPos]+"°C");
-        suggTurns.setText("Προτεινόμενες στροφές: "+ suggestedTurns[selectedPos]);
+        suggTemp.setText("Θερμοκρασία: " + suggestedTemp[selectedPos]+"°C");
+        suggTurns.setText("Στροφές: "+ suggestedTurns[selectedPos]);
 
         stepBar = findViewById(R.id.stepBar4);
 

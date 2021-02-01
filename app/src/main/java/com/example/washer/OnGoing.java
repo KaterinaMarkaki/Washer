@@ -65,7 +65,7 @@ public class OnGoing extends AppCompatActivity {
 
 
         TextView chosenTemp = findViewById(R.id.chosenTemp);
-        chosenTemp.setText("Επιλεγμένη θερμοκρασία: "+temperature+"°C");
+        chosenTemp.setText("Επιλεγμένη θερμοκρασία: "+temperature);
 
         TextView chosenTurns = findViewById(R.id.chosenTurns);
         chosenTurns.setText("Επιλεγμένες στροφές: " + turns);

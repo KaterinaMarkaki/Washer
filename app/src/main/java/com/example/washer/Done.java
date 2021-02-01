@@ -52,8 +52,6 @@ public class Done extends AppCompatActivity {
 
         mp = MediaPlayer.create(this,R.raw.tune);
         mp.start();
-        mp.release();
-        mp = null;
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -109,6 +107,7 @@ public class Done extends AppCompatActivity {
         turnOff.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick( View view) {
+                stopPlayer();
                 Intent start = new Intent(Done.this,PowerOnActivity.class);
                 startActivity(start);
             }
@@ -116,19 +115,6 @@ public class Done extends AppCompatActivity {
 
 
 
-    }
-
-    public void play(View v) {
-        if (mp == null) {
-            mp = MediaPlayer.create(this, R.raw.tune);
-            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    stopPlayer();
-                }
-            });
-        }
-        mp.start();
     }
 
     private void stopPlayer() {
