@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Squeeze_timer"
-            android:label="ΣΤΥΨΙΜΟ" />
+            android:label="ΣΤΥΨΙΜΟ " />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".step1"
